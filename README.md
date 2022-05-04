@@ -46,7 +46,7 @@ You may also see any lint errors in the terminal window.
 
 1. Get the app to compile and successfully run
 
-2. Ensure we have a way to query all users and to get a user by a specific ID
+2. Ensure we have a way to query all users. Update the request to get a user by a specific ID as well as their Todos.
 
 3. Add functionality for creating a Todo
 

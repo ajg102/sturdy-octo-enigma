@@ -21,6 +21,7 @@ app.get("/users", async (req, res) => {
 
 app.get("/users/:userId", (req, res) => {
   const db = initDb();
+  const params = req.params
   const user = db.first("*").from("Users");
   res.json(user);
   destroyDb();
