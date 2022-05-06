@@ -37,6 +37,6 @@ app.post("todos", (req, res) => {
   await destroyDb();
 })
 
-app.listen(PORT, () => {
+app.listen(PRT, () => {
   console.log(`App is ready on port ${PORT}`);
 });
