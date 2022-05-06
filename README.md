@@ -1,4 +1,4 @@
-# Getting Started with Shockoe React Interview
+# Getting Started with Shockoe NodeJS-API Interview
 
 ## Cloning this repo
 
