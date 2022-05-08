@@ -1,6 +1,6 @@
 const express = require("express");
 const { initDb, destroyDb } = require("./db/index");
-const {v4: uuidv4} = require('uuid')
+const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 
@@ -19,23 +19,25 @@ app.get("/users", async (req, res) => {
   await destroyDb();
 });
 
-app.get("/users/:userId", (req, res) => {
-  const db = initDb();
-  const params = req.params
-  const user = db.first("*").from("Users");
+app.get("/users/:userId", async (req, res) => {
+  const db = await initDb();
+  const params = req.params;
+  const user = await db.first("*").from("Users");
   res.json(user);
-  destroyDb();
+  await destroyDb();
 });
 
-app.post("todos", (req, res) => {
+app.post("todos", async (req, res) => {
   const db = await initDb();
-  const requestBody = req.body
+  const requestBody = req.body;
   // TODO: construct todo
-  const newTodo = {}
+  const newTodo = {
+    id: uuidv4(),
+  };
   // TODO: add record to database
-  res.json(newTodo)
+  res.json(newTodo);
   await destroyDb();
-})
+});
 
 app.listen(PRT, () => {
   console.log(`App is ready on port ${PORT}`);
